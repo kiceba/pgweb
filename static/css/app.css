@@ -1,74 +1,86 @@
 /* ============================================================================
    pgweb - Dark Mode Theme (Supabase-inspired)
+   Authentic colors from github.com/supabase/supabase
    ============================================================================ */
 
 /* --------------------------------------------------------------------------
    CSS Custom Properties (Design Tokens)
+   Based on Supabase's design system
    -------------------------------------------------------------------------- */
 
 :root {
-  /* Brand Colors */
-  --color-brand-primary: #3ECF8E;
-  --color-brand-primary-hover: #2EB67D;
-  --color-brand-primary-muted: rgba(62, 207, 142, 0.15);
-  --color-brand-secondary: #6366F1;
+  /* Brand Colors - Supabase Green */
+  --color-brand-primary: hsl(153.1, 60.2%, 52.7%);
+  --color-brand-primary-hover: hsl(152.9, 56.1%, 46.5%);
+  --color-brand-primary-muted: hsl(155, 100%, 9.6%);
+  --color-brand-600: hsl(154.9, 59.5%, 70%);
+  --color-brand-500: hsl(154.9, 100%, 19.2%);
+  --color-brand-400: hsl(155.5, 100%, 9.6%);
 
-  /* Light Theme (Default) */
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F9FAFB;
-  --color-bg-tertiary: #F3F4F6;
-  --color-bg-elevated: #FFFFFF;
+  /* Secondary - Supabase Purple/Indigo */
+  --color-secondary: hsl(247.8, 100%, 70%);
+
+  /* Light Theme (Default) - Supabase Light Gray Scale */
+  --color-bg-primary: hsl(0, 0%, 100%);
+  --color-bg-secondary: hsl(0, 0%, 98.8%);
+  --color-bg-tertiary: hsl(0, 0%, 97.3%);
+  --color-bg-elevated: hsl(0, 0%, 100%);
   --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-canvas: hsl(0, 0%, 98%);
+  --color-bg-sidebar: hsl(0, 0%, 97.3%);
 
-  /* Surfaces */
-  --color-surface-100: #FFFFFF;
-  --color-surface-200: #F9FAFB;
-  --color-surface-300: #F3F4F6;
-  --color-surface-400: #E5E7EB;
+  /* Surfaces - Light */
+  --color-surface-100: hsl(0, 0%, 100%);
+  --color-surface-200: hsl(0, 0%, 97.3%);
+  --color-surface-300: hsl(0, 0%, 95.3%);
+  --color-surface-400: hsl(0, 0%, 92.9%);
 
-  /* Borders */
-  --color-border-primary: #E5E7EB;
-  --color-border-secondary: #D1D5DB;
-  --color-border-muted: #F3F4F6;
+  /* Borders - Light */
+  --color-border-default: hsl(0, 0%, 91%);
+  --color-border-default: hsl(0, 0%, 88.6%);
+  --color-border-secondary: hsl(0, 0%, 85.9%);
+  --color-border-strong: hsl(0, 0%, 78%);
+  --color-border-muted: hsl(0, 0%, 95.3%);
 
-  /* Text */
-  --color-text-primary: #111827;
-  --color-text-secondary: #4B5563;
-  --color-text-tertiary: #6B7280;
-  --color-text-muted: #9CA3AF;
-  --color-text-inverse: #FFFFFF;
+  /* Text - Light */
+  --color-text-primary: hsl(0, 0%, 9%);
+  --color-text-secondary: hsl(0, 0%, 43.5%);
+  --color-text-tertiary: hsl(0, 0%, 52.2%);
+  --color-text-muted: hsl(0, 0%, 56.1%);
+  --color-text-inverse: hsl(0, 0%, 100%);
 
   /* Interactive States */
-  --color-hover: #F3F4F6;
-  --color-active: #E5E7EB;
-  --color-focus-ring: rgba(62, 207, 142, 0.4);
-  --color-selected: #3874d7;
-  --color-row-hover: #FFFBEB;
+  --color-hover: hsl(0, 0%, 95.3%);
+  --color-active: hsl(0, 0%, 92.9%);
+  --color-focus-ring: hsla(153.1, 60.2%, 52.7%, 0.4);
+  --color-selection: hsl(0, 0%, 91%);
+  --color-row-hover: hsl(0, 0%, 97.3%);
 
   /* Status Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #3B82F6;
+  --color-success: hsl(153.1, 60.2%, 52.7%);
+  --color-warning: hsl(38.9, 100%, 42.9%);
+  --color-error: hsl(10.2, 77.9%, 53.9%);
+  --color-info: hsl(217.2, 91.2%, 59.8%);
 
   /* Sidebar */
-  --color-sidebar-bg: #F9FAFB;
-  --color-sidebar-header: #1F2937;
-  --color-sidebar-text: #374151;
-  --color-sidebar-item-hover: #F3F4F6;
-  --color-sidebar-item-active: #E5E7EB;
+  --color-sidebar-bg: hsl(0, 0%, 97.3%);
+  --color-sidebar-header: hsl(0, 0%, 9%);
+  --color-sidebar-text: hsl(0, 0%, 43.5%);
+  --color-sidebar-item-hover: hsl(0, 0%, 95.3%);
+  --color-sidebar-item-active: hsl(0, 0%, 92.9%);
 
   /* Navigation */
-  --color-nav-bg: #1F2937;
-  --color-nav-text: #D1D5DB;
-  --color-nav-text-hover: #FFFFFF;
-  --color-nav-selected-bg: #FFFFFF;
-  --color-nav-selected-text: #111827;
+  --color-nav-bg: hsl(0, 0%, 100%);
+  --color-nav-border: hsl(0, 0%, 91%);
+  --color-nav-text: hsl(0, 0%, 43.5%);
+  --color-nav-text-hover: hsl(0, 0%, 9%);
+  --color-nav-selected-bg: transparent;
+  --color-nav-selected-text: hsl(0, 0%, 9%);
 
   /* Editor */
-  --color-editor-bg: #FFFFFF;
-  --color-editor-gutter: #F9FAFB;
-  --color-editor-gutter-text: #9CA3AF;
+  --color-editor-bg: hsl(0, 0%, 100%);
+  --color-editor-gutter: hsl(0, 0%, 98.8%);
+  --color-editor-gutter-text: hsl(0, 0%, 56.1%);
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -81,72 +93,86 @@
   --transition-normal: 200ms ease;
   --transition-slow: 300ms ease;
 
-  /* Border Radius */
+  /* Border Radius - Supabase uses 4px and 8px */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
 }
 
 /* --------------------------------------------------------------------------
-   Dark Theme
+   Dark Theme - Authentic Supabase Colors
+   From: github.com/supabase/supabase/packages/ui/build/css/themes/dark.css
    -------------------------------------------------------------------------- */
 
 [data-theme="dark"] {
-  /* Backgrounds - Supabase dark palette */
-  --color-bg-primary: #0F0F0F;
-  --color-bg-secondary: #171717;
-  --color-bg-tertiary: #1F1F1F;
-  --color-bg-elevated: #262626;
+  /* Backgrounds - Supabase gray-dark scale */
+  --color-bg-primary: hsl(0, 0%, 7.1%);
+  --color-bg-secondary: hsl(0, 0%, 9%);
+  --color-bg-tertiary: hsl(0, 0%, 12.2%);
+  --color-bg-elevated: hsl(0, 0%, 14.1%);
   --color-bg-overlay: rgba(0, 0, 0, 0.7);
+  --color-bg-canvas: hsl(0, 0%, 7.1%);
+  --color-bg-sidebar: hsl(0, 0%, 9%);
 
-  /* Surfaces */
-  --color-surface-100: #171717;
-  --color-surface-200: #1F1F1F;
-  --color-surface-300: #262626;
-  --color-surface-400: #303030;
+  /* Surfaces - Supabase dark */
+  --color-surface-100: hsl(0, 0%, 9%);
+  --color-surface-200: hsl(0, 0%, 12.9%);
+  --color-surface-300: hsl(0, 0%, 16.1%);
+  --color-surface-400: hsl(0, 0%, 19.2%);
 
-  /* Borders */
-  --color-border-primary: #303030;
-  --color-border-secondary: #404040;
-  --color-border-muted: #262626;
+  /* Borders - Supabase dark */
+  --color-border-default: hsl(0, 0%, 18%);
+  --color-border-default: hsl(0, 0%, 21.2%);
+  --color-border-secondary: hsl(0, 0%, 24.3%);
+  --color-border-strong: hsl(0, 0%, 27.1%);
+  --color-border-muted: hsl(0, 0%, 14.1%);
 
-  /* Text */
-  --color-text-primary: #F9FAFB;
-  --color-text-secondary: #D1D5DB;
-  --color-text-tertiary: #9CA3AF;
-  --color-text-muted: #6B7280;
-  --color-text-inverse: #0F0F0F;
+  /* Text - Supabase dark */
+  --color-text-primary: hsl(0, 0%, 98%);
+  --color-text-secondary: hsl(0, 0%, 70.6%);
+  --color-text-tertiary: hsl(0, 0%, 53.7%);
+  --color-text-muted: hsl(0, 0%, 30.2%);
+  --color-text-inverse: hsl(0, 0%, 8.6%);
 
   /* Interactive States */
-  --color-hover: #262626;
-  --color-active: #303030;
-  --color-row-hover: rgba(62, 207, 142, 0.08);
+  --color-hover: hsl(0, 0%, 14.1%);
+  --color-active: hsl(0, 0%, 18%);
+  --color-selection: hsl(0, 0%, 19.2%);
+  --color-row-hover: hsla(153.1, 60.2%, 52.7%, 0.08);
 
   /* Sidebar */
-  --color-sidebar-bg: #171717;
-  --color-sidebar-header: #1F1F1F;
-  --color-sidebar-text: #D1D5DB;
-  --color-sidebar-item-hover: #262626;
-  --color-sidebar-item-active: #303030;
+  --color-sidebar-bg: hsl(0, 0%, 9%);
+  --color-sidebar-header: hsl(0, 0%, 12.2%);
+  --color-sidebar-text: hsl(0, 0%, 70.6%);
+  --color-sidebar-item-hover: hsl(0, 0%, 14.1%);
+  --color-sidebar-item-active: hsl(0, 0%, 18%);
 
   /* Navigation */
-  --color-nav-bg: #1F1F1F;
-  --color-nav-text: #9CA3AF;
-  --color-nav-text-hover: #F9FAFB;
-  --color-nav-selected-bg: #262626;
-  --color-nav-selected-text: #F9FAFB;
+  --color-nav-bg: hsl(0, 0%, 9%);
+  --color-nav-border: hsl(0, 0%, 18%);
+  --color-nav-text: hsl(0, 0%, 53.7%);
+  --color-nav-text-hover: hsl(0, 0%, 98%);
+  --color-nav-selected-bg: transparent;
+  --color-nav-selected-text: hsl(0, 0%, 98%);
 
   /* Editor */
-  --color-editor-bg: #171717;
-  --color-editor-gutter: #171717;
-  --color-editor-gutter-text: #6B7280;
+  --color-editor-bg: hsl(0, 0%, 9%);
+  --color-editor-gutter: hsl(0, 0%, 9%);
+  --color-editor-gutter-text: hsl(0, 0%, 30.2%);
 
-  /* Shadows - more subtle in dark mode */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --shadow-dropdown: 0 4px 16px rgba(0, 0, 0, 0.4);
+  /* Shadows - subtle in dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6);
+  --shadow-dropdown: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* --------------------------------------------------------------------------
@@ -173,7 +199,7 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   Navigation Bar
+   Navigation Bar - Supabase-style tabs
    -------------------------------------------------------------------------- */
 
 #nav {
@@ -181,34 +207,37 @@ html, body {
   top: 0;
   left: 250px;
   right: 0;
-  height: 50px;
+  height: 44px;
   background: var(--color-nav-bg);
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
   z-index: 100;
+  display: flex;
+  align-items: flex-end;
 }
 
 #nav ul {
   margin: 0px;
-  padding: 0px;
-  height: 50px;
+  padding: 0px 12px;
+  height: 44px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  gap: 4px;
 }
 
 #nav ul li {
   margin: 0px;
-  padding: 0px;
-  height: 50px;
-  line-height: 50px;
+  padding: 0px 12px;
+  height: 36px;
+  line-height: 36px;
   font-size: 13px;
-  padding: 0px 16px;
   color: var(--color-nav-text);
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
   display: block;
   list-style: none;
   list-style-type: none;
-  border-bottom: 2px solid transparent;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  position: relative;
   transition: all var(--transition-fast);
 }
 
@@ -222,14 +251,19 @@ html, body {
 }
 
 #nav ul li.selected {
-  position: relative;
-  background: var(--color-nav-selected-bg);
+  background: var(--color-bg-primary);
   color: var(--color-nav-selected-text);
-  border-bottom-color: var(--color-brand-primary);
+  font-weight: 500;
 }
 
-#nav ul li.selected:before {
-  display: none;
+#nav ul li.selected::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-brand-primary);
 }
 
 #nav ul li.selected:first-child {
@@ -237,7 +271,7 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   Sidebar
+   Sidebar - Supabase-style
    -------------------------------------------------------------------------- */
 
 #sidebar {
@@ -248,7 +282,7 @@ html, body {
   bottom: 0px;
   box-sizing: border-box;
   background: var(--color-sidebar-bg);
-  border-right: 1px solid var(--color-border-primary);
+  border-right: 1px solid var(--color-border-default);
 }
 
 #sidebar .current-database {
@@ -256,31 +290,32 @@ html, body {
   left: 0px;
   top: 0px;
   width: 250px;
-  height: 50px;
-  line-height: 50px;
+  height: 44px;
+  line-height: 44px;
   font-weight: 600;
   font-size: 14px;
-  color: var(--color-text-inverse);
-  background: var(--color-sidebar-header);
+  color: var(--color-text-primary);
+  background: var(--color-sidebar-bg);
   z-index: 900;
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
 }
 
 [data-theme="dark"] #sidebar .current-database {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: var(--color-sidebar-bg);
   color: var(--color-text-primary);
 }
 
 #sidebar .current-database .wrap {
   position: relative;
-  height: 50px;
+  height: 44px;
 }
 
 #sidebar .current-database span.current-database-name {
   margin-left: 30px;
   display: inline-block;
   width: 200px;
-  height: 50px;
+  height: 44px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -289,8 +324,8 @@ html, body {
 
 #sidebar .current-database i.fa-database {
   position: absolute;
-  left: 8px;
-  top: 18px;
+  left: 10px;
+  top: 14px;
   color: var(--color-brand-primary);
 }
 
@@ -298,7 +333,7 @@ html, body {
   margin-left: 30px;
   display: inline-block;
   width: 200px;
-  height: 50px;
+  height: 44px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -344,7 +379,7 @@ html, body {
   max-height: 300px;
   z-index: 999;
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-dropdown);
 }
@@ -364,10 +399,10 @@ html, body {
 /* Search Box */
 #sidebar .objects-search {
   position: fixed;
-  top: 50px;
+  top: 44px;
   left: 0px;
   width: 250px;
-  height: 40px;
+  height: 44px;
   overflow: hidden;
   background: var(--color-sidebar-bg);
 }
@@ -375,10 +410,10 @@ html, body {
 #sidebar .objects-search .wrap {
   position: relative;
   background: transparent;
-  height: 40px;
-  padding: 6px 8px;
+  height: 44px;
+  padding: 8px 10px;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 #sidebar .objects-search i.fa-search {
@@ -404,7 +439,7 @@ html, body {
 
 #sidebar .objects-search input[type="text"] {
   background: var(--color-surface-200);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   font-size: 12px;
   color: var(--color-text-primary);
@@ -430,7 +465,7 @@ html, body {
 #sidebar div.tables-list {
   position: fixed;
   width: 250px;
-  top: 90px;
+  top: 88px;
   left: 0px;
   bottom: 130px;
   overflow: auto;
@@ -454,8 +489,9 @@ html, body {
   bottom: 0px;
   box-sizing: border-box;
   cursor: default;
-  background: var(--color-sidebar-bg);
-  border-top: 1px solid var(--color-border-primary);
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
 }
 
 #sidebar div.table-information .wrap {
@@ -498,7 +534,7 @@ html, body {
 
 #body {
   position: fixed;
-  top: 50px;
+  top: 44px;
   left: 250px;
   bottom: 0px;
   right: 0px;
@@ -515,7 +551,7 @@ html, body {
   height: 300px;
   position: relative;
   background: var(--color-bg-primary);
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 #input .input-wrapper {
@@ -526,7 +562,7 @@ html, body {
 #input_resize_handler {
   width: 100%;
   height: 4px;
-  background: var(--color-border-primary);
+  background: var(--color-border-default);
   cursor: row-resize;
   position: absolute;
   bottom: 0px;
@@ -544,7 +580,7 @@ html, body {
   padding: 10px 12px;
   height: 50px;
   bottom: 0px;
-  border-top: 1px solid var(--color-border-primary);
+  border-top: 1px solid var(--color-border-default);
   display: flex;
   align-items: center;
 }
@@ -638,7 +674,7 @@ html, body {
   top: 0px;
   left: 0px;
   background: var(--color-bg-secondary);
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
   box-sizing: border-box;
 }
 
@@ -665,7 +701,7 @@ html, body {
   height: 30px;
   padding: 0 8px;
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   color: var(--color-text-primary);
   outline: none;
@@ -702,7 +738,7 @@ html, body {
 
 #pagination .filters .btn-default {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   color: var(--color-text-secondary);
 }
 
@@ -714,7 +750,7 @@ html, body {
 
 #pagination .btn-group .btn {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   color: var(--color-text-secondary);
   border-radius: var(--radius-md);
 }
@@ -766,7 +802,7 @@ html, body {
 
 #results th {
   border-top: none;
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
   padding: 8px 12px;
   line-height: 24px;
   color: var(--color-text-secondary);
@@ -837,7 +873,7 @@ html, body {
   color: var(--color-text-primary);
   font-size: 12px;
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
 }
 
 #results th:first-child,
@@ -862,7 +898,7 @@ html, body {
 }
 
 #results_view pre {
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   position: relative;
   background: var(--color-surface-200);
@@ -881,7 +917,7 @@ html, body {
   width: 30px;
   height: 30px;
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   cursor: pointer;
   color: var(--color-text-secondary);
@@ -927,7 +963,7 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   z-index: 1000;
@@ -953,7 +989,7 @@ html, body {
   padding: 0 16px;
   color: var(--color-text-primary);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom: 1px solid var(--color-border-default);
 }
 
 #content_modal .actions {
@@ -968,7 +1004,7 @@ html, body {
   font-size: 13px;
   text-align: center;
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   cursor: pointer;
   margin-left: 8px;
@@ -1109,7 +1145,7 @@ html, body {
   background: var(--color-surface-200);
   padding: 24px;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
 }
 
 .connection-settings form .form-group {
@@ -1124,7 +1160,7 @@ html, body {
 
 .connection-settings form .form-control {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   color: var(--color-text-primary);
   border-radius: var(--radius-md);
   padding: 8px 12px;
@@ -1172,7 +1208,7 @@ html, body {
 
 .connection-settings form .btn-default {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   color: var(--color-text-secondary);
   padding: 12px;
   font-size: 14px;
@@ -1209,7 +1245,7 @@ html, body {
 
 .connection-group-switch .btn {
   background: var(--color-bg-primary);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   color: var(--color-text-secondary);
   padding: 8px 16px;
   font-size: 13px;
@@ -1366,7 +1402,7 @@ html, body {
 
 .ace_autocomplete {
   background: var(--color-bg-elevated) !important;
-  border: 1px solid var(--color-border-primary) !important;
+  border: 1px solid var(--color-border-default) !important;
   border-radius: var(--radius-md) !important;
   box-shadow: var(--shadow-dropdown) !important;
 }
@@ -1389,7 +1425,7 @@ html, body {
 
 .dropdown-menu {
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-dropdown);
   padding: 4px 0;
@@ -1409,7 +1445,7 @@ html, body {
 }
 
 .dropdown-menu .divider {
-  background-color: var(--color-border-primary);
+  background-color: var(--color-border-default);
   margin: 4px 0;
 }
 
@@ -1423,7 +1459,7 @@ html, body {
 #results_header_menu .dropdown-menu,
 #results_row_menu .dropdown-menu {
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-dropdown);
 }
@@ -1446,7 +1482,7 @@ html, body {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-border-default);
   background: var(--color-bg-elevated);
   color: var(--color-text-secondary);
   cursor: pointer;
@@ -1546,7 +1582,7 @@ html, body {
 
 .form-control {
   background-color: var(--color-bg-primary);
-  border-color: var(--color-border-primary);
+  border-color: var(--color-border-default);
   color: var(--color-text-primary);
 }
 
@@ -1561,7 +1597,7 @@ html, body {
 
 .btn-default {
   background: var(--color-bg-primary);
-  border-color: var(--color-border-primary);
+  border-color: var(--color-border-default);
   color: var(--color-text-secondary);
 }
 
@@ -1600,7 +1636,7 @@ html, body {
 }
 
 hr {
-  border-color: var(--color-border-primary);
+  border-color: var(--color-border-default);
 }
 
 /* Row Action Buttons */
