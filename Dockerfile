@@ -57,7 +57,7 @@ RUN apt-get update && \
     apt-get install -qq --no-install-recommends \
     ca-certificates \
     openssl \
-    netcat \
+    netcat-openbsd \
     curl \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/*
