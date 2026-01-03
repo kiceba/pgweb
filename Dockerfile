@@ -64,9 +64,6 @@ RUN apt-get update && \
 
 # Copy pgweb binary
 COPY --from=build /usr/bin/pgweb /usr/bin/pgweb
-    echo "deb [signed-by=${keyring}] http://apt.postgresql.org/pub/repos/apt/ ${VERSION_CODENAME}-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
-    apt-get update && \
-    apt-get install -qq --no-install-recommends ca-certificates openssl netcat-openbsd curl postgresql-client
 
 # Set permissions
 RUN chmod +x /usr/bin/pgweb
